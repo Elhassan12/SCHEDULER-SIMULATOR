@@ -1,0 +1,75 @@
+With multiprogramming, we try to use time productively 
+    * Several processes are kept in the memory at one time. 
+    * When one process has to wait, the operating system takes the CPU away from that process
+      and gives the CPU to another process and this pattern continues.  
+
+---------- CPU Scheduling ----------------
+CPU scheduling is the basis of multiprogramming operating systems. 
+
+---------- CPU and I/O Burst Cycle ------------
+* Processs execution consist of a cycle of CPU execution and I/O wait
+* process alternate between these two states => (CPU execution, I/O eait). 
+
+CPU burst => the time in which the process under the CPU execution. 
+I/O burst => the time in which the process unde the I/O wait. 
+
+--> When processs begins its execution it stsrts with CPU burst. 
+
+********* in other maining *********
+    CPU burst -> is when the process is being executed in the CPU.
+    I/O burst -> is when the CPU is waiting for I/O for further execution. 
+
+Eventually, the final CPU burst ends with a system request to terminate execution.
+
+
+------- Non-Preemptive or cooperative --------
+1. When a process switches from the running state to the waiting state.
+2. When a process is terminates. 
+
+------- Preemptive --------
+1. When a process switches from the running state to the ready state.
+2. When a process switches from the waiting state to the ready state.
+
+
+---------- Scheduling Criteria ----------
+--> CPU utilization
+
+-------> Throughput
+
+------------> Turnaround time
+
+-----------------> Waiting time
+
+----------------------> Response time
+
+------------------------------------------------
+
+CPU utilization => We want to keep the CPU as busy as possible. 
+
+Throughput => if the CPU is busy executing processes, then work is being done.
+              One measure of work is the number of processses that are completed per time unit, called "Throughput".
+
+Turnaround time => How long it take to execute that process. 
+                The interval from the time of submission of a process to the time of completion is the "turnaround time".
+
+Waiting time => the amount of time that a process spends waiting in the ready queue. 
+
+Response time => the time from the submission of a request until the first response is produced. 
+
+
+--------------- Different Scheduling algorithms --------------- 
+
+- FCFS (First Come, First Served) algorithm  
+    -- By far the simplest  CPU-scheduling algorithm. 
+    -- The process that requests the CPU first is allocated the Come first.
+    -- The implementation of the FCFS policy is easily managed with a FIFO queue.  
+    -- FCFS scheduling algorithm is nonPreemptive
+
+- SJF (Shortest-Job-First) algorithm 
+    -- This algorithm associate with each process the length of the process's next CPU burst. 
+    -- When the CPU is available, it is assigned to the process that has the smallest next CPU burst. 
+    -- If the next CPU bursts of two processes are the same, FCFS scheduling is used to break the tie. 
+    -- SJF algorithm can be either Preemptive or nonPreemptive.
+    --- in Preemptive case ==> if one process is using the CPU, then even other process can come and take the CPU away from it based on some condition. 
+    --- in nonPreemptive case ==> When the CPU is being used by particular process, that process cannot be disturbed until that process complete its execution or goes to the waiting state,
+        no other process can come and disturb it and take the CPU away from it
